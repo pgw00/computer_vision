@@ -87,6 +87,6 @@ print("Saved: gray_output.jpg, combined_output.jpg")
 cd Chapter_01
 env\Scripts\python.exe E01_1.py
 ```
-결과
+# 결과
 
 ![E01_1 preview](E01/E01_1.jpg)
