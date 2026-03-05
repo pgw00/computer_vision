@@ -109,7 +109,7 @@ while True:
 
 
     # '-' 키를 누르면 붓 크기 감소
-    elif key == ord('-'):
+    if key == ord('-'):
 
         # 붓 크기를 1 감소시키되 최소값은 1로 제한
         brush_size = max(1, brush_size - 1)
@@ -117,7 +117,12 @@ while True:
         # 현재 붓 크기를 콘솔에 출력
         print("Brush size:", brush_size)
 
-
+    elif key == ord('s'):
+        save_path = os.path.join(script_dir, "paint_result.jpg")
+        cv.imwrite(save_path, img)
+        print("이미지가 저장되었습니다:", save_path)
+        
+            
     # 'q' 키를 누르면 프로그램 종료
     elif key == ord('q'):
         break
