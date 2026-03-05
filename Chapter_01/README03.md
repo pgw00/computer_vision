@@ -190,14 +190,6 @@ env\Scripts\python.exe E01_3.py
 
 ---
 
-## 공통 요구사항 및 환경
-
-- Python 3.8 이상
-- OpenCV 설치: `pip install opencv-python`
-- NumPy 설치: `pip install numpy`
-- 예제 이미지 `soccer.jpg` 및 각 미리보기 이미지는 `Chapter_01` 폴더에 위치함
-
-필요하면 README에 실행 스크린샷을 더 추가하거나, 각 스크립트의 주요 코드 스니펫(핵심 콜백 함수 등)을 포함해 더 상세히 문서화해 드리겠습니다.
 
 
 

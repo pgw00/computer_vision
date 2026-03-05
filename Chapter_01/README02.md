@@ -101,6 +101,34 @@ cv.destroyAllWindows()
 
 주요 사용 함수 및 처리 흐름
 
+- 풀이 방법 (흐름 설명)
+
+- 초기화
+	- 스크립트 기준으로 입력 이미지 경로를 정하고 `cv.imread()`로 로드
+	- `brush_size = 5`, `drawing = False` 등 상태 변수 초기화
+	- 윈도우 생성(`cv.namedWindow("Paint")`) 및 마우스 콜백 등록(`cv.setMouseCallback`)
+
+- 마우스 콜백(상태 전이)
+	- `EVENT_LBUTTONDOWN` / `EVENT_RBUTTONDOWN`: `drawing = True`, 클릭 위치에 즉시 원 그리기(좌=파랑, 우=빨강)
+	- `EVENT_MOUSEMOVE`: `drawing == True`일 때 `flags`로 눌린 버튼 판별 후 `cv.circle()`로 연속 그리기
+	- `EVENT_LBUTTONUP` / `EVENT_RBUTTONUP`: `drawing = False`
+
+- 메인 루프
+	- 화면 갱신: `cv.imshow("Paint", img)`
+	- 키 처리: `key = cv.waitKey(1) & 0xFF`
+		- `+` / `=`: `brush_size = min(15, brush_size+1)`
+		- `-`: `brush_size = max(1, brush_size-1)`
+		- `s`: 현재 캔버스 저장
+		- `q`: 종료 전 최종 캔버스 저장(`results/painted_girl_laughing.png`) 후 루프 탈출
+
+- 정리
+	- `cv.imwrite()`로 파일 저장, `cv.destroyAllWindows()`로 윈도우 정리
+
+유의사항
+- 콜백 내부에서 전역 변수를 수정하므로 `global` 선언 필요
+- `flags`는 비트마스크이므로 `flags & cv.EVENT_FLAG_LBUTTON`처럼 검사
+- 성능: 큰 이미지를 실시간으로 그릴 때는 표시용 축소본을 사용하고, 최종 저장은 원본 크기로 수행
+
 - `cv.setMouseCallback(window, callback)` — 마우스 이벤트 등록
 - 마우스 이벤트 핸들러에서 `cv.EVENT_LBUTTONDOWN/UP`, `cv.EVENT_RBUTTONDOWN/UP`, `cv.EVENT_MOUSEMOVE` 처리
 - `cv.circle(img, (x,y), radius, color, -1)` — 현재 브러시 크기로 원을 채워 그림
