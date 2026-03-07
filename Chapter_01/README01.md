@@ -5,9 +5,9 @@
 컴퓨터비전 수업에서 OpenCV 라이브러리를 활용하여 이미지 처리와 마우스 이벤트를 이용한 인터랙티브 프로그램을 구현하였다.
 각 실습은 이미지 처리의 기본 개념과 사용자 입력을 활용한 기능 구현을 목표로 한다.
 
-### 캡처(이미지 취득) 및 기초 개념 정리
+### (이미지 취득) 및 기초 개념 정리
 
-![Capture](capture.jpg)
+![Capture](E01/capture.png)
 
 
 - 이미지(픽셀): 이미지는 가로×세로 격자에 각 위치마다 색상값(채널)을 가진 배열로 표현된다. 예: 컬러 이미지는 3채널(B, G, R).
@@ -68,7 +68,7 @@ cv.imwrite("combined_output.jpg", combined)
 print("Saved: gray_output.jpg, combined_output.jpg")
 ```
 
-설명
+# 설명
 
 이미지를 로드한 뒤 원본 컬러 영상과 그레이스케일 영상을 나란히 보여준다. 이미지 로드, 색상 변환, 배열 결합, 화면 표시의 기본 흐름을 학습한다.
 
@@ -81,12 +81,12 @@ print("Saved: gray_output.jpg, combined_output.jpg")
 - `cv.resize(..., fx, fy)` — 표시용으로 축소(선택사항)
 - `cv.imshow()` / `cv.waitKey()` — 화면 출력 및 키 입력 대기
 
-실행
+# 실행
 
 ```powershell
 cd Chapter_01
 env\Scripts\python.exe E01_1.py
 ```
-결과
+# 결과
 
 ![E01_1 preview](E01/E01_1.jpg)
